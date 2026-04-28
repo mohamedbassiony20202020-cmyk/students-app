@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+
+<body>
+
+<h2>قائمة الطلاب</h2>
+
+<button onclick="loadStudents()">تحميل البيانات</button>
+
+<ul id="studentsList"></ul>
+
+<script>
+
+function loadStudents() {
+
+    fetch("https://mnkyuunpiylpkebuzmji.supabase.co/rest/v1/students", {
+        headers: {
+            "apikey": "sb_publishable_JD_jXaIEslmq6MhYJXpOGQ_iL93QnRf",
+            "Authorization": "sb_publishable_JD_jXaIEslmq6MhYJXpOGQ_iL93QnRf"
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        let list = document.getElementById("studentsList");
+        list.innerHTML = "";
+
+        data.forEach(student => {
+            let li = document.createElement("li");
+            li.textContent = student.name + " - " + student.national_id;
+            list.appendChild(li);
+        });
+    });
+
+}
+
+</script>
+
+</body>
+</html>
