@@ -30,7 +30,7 @@ function loadStudents() {
 
         data.forEach(student => {
             let li = document.createElement("li");
-            li.textContent = student.name + " - " + student.national_id;
+            li.textContent = student.name + " - " + student.national_no;
             list.appendChild(li);
         });
     });
