@@ -28,7 +28,7 @@ function loadStudents() {
         let list = document.getElementById("studentsList");
         list.innerHTML = "";
 
-        data.forEach(student => {
+        data.forEach(Students => {
             let li = document.createElement("li");
             li.textContent = Students.Student_Name + " - " + Students.National_No;
             list.appendChild(li);
